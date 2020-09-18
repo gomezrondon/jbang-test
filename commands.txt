@@ -1,0 +1,9 @@
+
+#here is the compile kotlin class
+build/classes/kotlin/main/
+
+#with this, the kotlin library is imported
+//DEPS org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.10
+
+#to run the java script
+jbang --cp=build/classes/kotlin/main/ src/jscript.java
