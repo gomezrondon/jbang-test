@@ -11,6 +11,8 @@ dependencies {
 }
 
 sourceSets.main.java.srcDirs 'src'
+sourceSets.main.kotlin.srcDirs 'src'
+
 buildscript {
 	ext.kotlin_version = '1.4.10'
 	repositories {
@@ -31,3 +33,20 @@ compileTestKotlin {
 	}
 }
 
+
+task deleteFiles(type: Delete) {
+	delete fileTree("$projectDir/deploy") {
+		include '**/*'
+	}
+}
+task copyFolder(type: Copy) {
+	dependsOn(deleteFiles)
+	from sourceSets.main.java.srcDirs
+	into "$projectDir/deploy"
+}
+
+task copyall(type: Copy) {
+	dependsOn(copyFolder)
+	from "$buildDir/classes/kotlin/main"
+	into "$projectDir/deploy"
+}

@@ -5,8 +5,14 @@ build/classes/kotlin/main/
 #with this, the kotlin library is imported
 //DEPS org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.10
 
-#before ejecuting the script we need to generate the necesary kotlin classes
+#before ejecting the script we need to generate the necessary kotlin classes
 gradle build
 
 #to run the java script
 jbang --cp=build/classes/kotlin/main/ src/jscript.java
+
+----- another way
+# run
+gradle clean build copyall
+cd /deploy
+jbang --cp=. jscript.java ../file.txt

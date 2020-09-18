@@ -4,7 +4,9 @@
 public class jscript {
 
     public static void main(String[] args) {
-        System.out.println(UtilKt.imprimiendo());
+        var variable = UtilKt.imprimiendo(args[0]);
+
+        variable.forEach(System.out::println);
     }
 
 }

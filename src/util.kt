@@ -1,9 +1,9 @@
 import java.io.File
 
 
-fun imprimiendo(): List<String> {
+fun imprimiendo(filePath: String): List<String> {
 
-    val readLines = File("file.txt").readLines()
+    val readLines = File(filePath).readLines()
     println("num lines: ${readLines.size}")
 
     return readLines
