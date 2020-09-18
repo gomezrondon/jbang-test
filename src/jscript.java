@@ -4,8 +4,7 @@
 public class jscript {
 
     public static void main(String[] args) {
-        kola k = new kola();
-        System.out.println(k.imprimiendo());
+        System.out.println(UtilKt.imprimiendo());
     }
 
 }
