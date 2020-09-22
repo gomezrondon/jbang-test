@@ -4,9 +4,9 @@
 public class jscript {
 
     public static void main(String[] args) {
-        var variable = UtilKt.imprimiendo(args[0]);
+         UtilKt.cleanKomposeYmlFiles(args[0]);
 
-        variable.forEach(System.out::println);
+        System.out.println("<<Script Executed!!>>");
     }
 
 }

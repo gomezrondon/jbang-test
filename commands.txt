@@ -16,3 +16,4 @@ jbang --cp=build/classes/kotlin/main/ src/jscript.java
 gradle clean build copyall
 cd /deploy
 jbang --cp=. jscript.java ../file.txt
+jbang --cp=./script script/jscript.java <path>\eureka-service-deployment.yaml

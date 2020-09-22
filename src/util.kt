@@ -9,3 +9,27 @@ fun imprimiendo(filePath: String): List<String> {
     return readLines
 
 }
+
+
+
+fun cleanKomposeYmlFiles(filePath: String) {
+    val joinToString = File(filePath).readLines()
+            .map { it.replace("io.kompose.service", "app") }
+            .filter { !it.contains("annotations") }
+            .filter { !it.contains("kompose") }
+            .filter { !it.contains("null") }
+            .filter { !it.contains("serviceAccountName") }
+            .map {
+
+                var valor = if (it.contains("imagePullPolicy: \"\"")) {
+                    it.replace("imagePullPolicy: \"\"", "imagePullPolicy: Never")
+                } else {
+                    it
+                }
+                valor
+            }
+            .joinToString("\n")
+
+
+    File(filePath).writeText(joinToString)
+}
